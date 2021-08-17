@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-js-jwt-auth
+  annotations:
+    metallb.universe.tf/address-pool: production-public-ips
+spec:
+  selector:
+    app: node-js-jwt-auth
+  ports:
+  - protocol: TCP
+    port: 9090
+    nodePort: 30082
+  type: NodePort

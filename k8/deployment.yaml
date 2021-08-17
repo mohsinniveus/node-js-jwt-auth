@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-js-jwt-auth
+spec:
+  selector:
+      matchLabels:
+        app: node-js-jwt-auth
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-js-jwt-auth
+    spec:
+      containers:
+        - name: node-js-jwt-auth
+          image: gcr.io/niveusanthos/node-js-jwt-auth:v1
+          ports:
+            - containerPort: 9090 
